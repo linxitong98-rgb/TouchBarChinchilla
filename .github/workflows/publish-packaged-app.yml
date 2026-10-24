@@ -1,6 +1,11 @@
 name: Publish packaged app
 on:
   workflow_dispatch:
+    inputs:
+      check_only:
+        description: Only check the publishing environment
+        type: boolean
+        default: false
 permissions:
   contents: write
 concurrency:
@@ -16,10 +21,16 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
+          CHECK_ONLY: ${{ inputs.check_only }}
         run: |
+          if [ "$CHECK_ONLY" = "true" ]; then
+            gh api --method POST "repos/$GH_REPO/git/blobs" -f content=publishing-environment-check -f encoding=utf-8 --jq .sha
+            exit 0
+          fi
           git init package
           git -C package remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
           git -C package fetch --depth=1 origin "$GITHUB_SHA"
           git -C package checkout --detach FETCH_HEAD
           cd package
           python3 scripts/publish-packaged-app.py
+
