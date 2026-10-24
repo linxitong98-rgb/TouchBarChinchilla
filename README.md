@@ -6,7 +6,7 @@
 
 ## 下载与安装
 
-请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.11.1-universal.dmg`，打开后将 App 拖入“应用程序”。也提供可直接解压的 App ZIP。更新前请先退出旧版。
+请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.11.1-universal.dmg`，打开后将 App 拖入“应用程序”。更新前请先退出旧版。
 
 最低编译目标为 macOS 11；实体 Touch Bar 需要配备 Touch Bar 的 MacBook Pro，其他 Mac 可使用窗口预览。旧系统实际运行仍需相应设备验证。
 
