@@ -1,0 +1,25 @@
+name: Publish packaged app
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: publish-packaged-app
+  cancel-in-progress: false
+jobs:
+  publish:
+    if: github.repository == 'linxitong98-rgb/TouchBarChinchilla'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Restore and publish the verified installer
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          git init package
+          git -C package remote add origin "https://github.com/${GITHUB_REPOSITORY}.git"
+          git -C package fetch --depth=1 origin "$GITHUB_SHA"
+          git -C package checkout --detach FETCH_HEAD
+          cd package
+          python3 scripts/publish-packaged-app.py
