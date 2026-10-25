@@ -1,4 +1,4 @@
-"""Publish a byte-verified 1.12.0 installer using the public previous release."""
+"""Publish a byte-verified 1.12.2 installer using the public previous release."""
 import bz2
 import hashlib
 import io
@@ -10,9 +10,9 @@ import subprocess
 import sys
 
 REPO='linxitong98-rgb/TouchBarChinchilla'
-VERSION='1.12.0'
-EXPECTED_SHA='b51f8d938e3543d490808edd9009ed82cb1367a7b93de12f67a5df0a0377ddeb'
-BASE_SHA='5cb6f15754359fc46dc7d6e3800524b20f86dae62e73f9955b445d51014eeb25'
+VERSION='1.12.2'
+EXPECTED_SHA='3f90b0de017144bcff79605c32ef8b2366f9adba7e6c65230b54cf0009a338dc'
+BASE_SHA='b51f8d938e3543d490808edd9009ed82cb1367a7b93de12f67a5df0a0377ddeb'
 
 
 def api(path,payload=None,method='GET'):
@@ -59,8 +59,14 @@ def apply_bsdiff(old, patch, expected_size):
 
 def reconstruct(root,manifest,base_path):
     assert manifest['version']==VERSION and manifest['sha256']==EXPECTED_SHA
-    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.11.2'
-    old=base_path.read_bytes();patch=(root/manifest['patch']['name']).read_bytes()
+    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.12.0'
+    old=base_path.read_bytes()
+    pieces=[]
+    for part in manifest['patch']['parts']:
+        data=(root/part['name']).read_bytes()
+        assert len(data)==part['size'] and hashlib.sha256(data).hexdigest()==part['sha256']
+        pieces.append(data)
+    patch=b''.join(pieces)
     assert len(old)==manifest['base']['size'] and hashlib.sha256(old).hexdigest()==BASE_SHA
     assert len(patch)==manifest['patch']['size'] and hashlib.sha256(patch).hexdigest()==manifest['patch']['sha256']
     data=apply_bsdiff(old,patch,manifest['size'])
@@ -85,10 +91,11 @@ if __name__=='__main__':
     base_asset=next(a for a in base['assets'] if a['name']==manifest['base']['filename'])
     assert base_asset['size']==manifest['base']['size']
     staging=next(r for r in releases if r['draft'] and r['name']==manifest['staging_title'])
-    patch_asset=next(a for a in staging['assets'] if a['name']==manifest['patch']['name'])
-    assert patch_asset['size']==manifest['patch']['size']
     download(base_asset,Path('base.dmg'))
-    download(patch_asset,root/manifest['patch']['name'])
+    for part in manifest['patch']['parts']:
+        patch_asset=next(a for a in staging['assets'] if a['name']==part['name'])
+        assert patch_asset['size']==part['size']
+        download(patch_asset,root/part['name'])
     installer=reconstruct(root,manifest,Path('base.dmg'))
     tag='v'+VERSION;title='Touch Bar 小龙猫 '+VERSION
     notes=(root/'RELEASE-NOTES.md').read_text()
