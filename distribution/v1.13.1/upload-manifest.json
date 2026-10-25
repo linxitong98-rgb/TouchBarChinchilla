@@ -1,0 +1,29 @@
+{
+  "version": "1.13.1",
+  "staging_title": "Touch Bar 小龙猫 1.13.1 · 上传暂存",
+  "filename": "TouchBarChinchilla-1.13.1-universal.dmg",
+  "size": 122062037,
+  "sha256": "c3f3b2ecadebd0bcbfad393f357c3678c549ea706220574ad254e42568c7d676",
+  "base": {
+    "tag": "v1.12.2",
+    "filename": "TouchBarChinchilla-1.12.2-universal.dmg",
+    "size": 123126188,
+    "sha256": "3f90b0de017144bcff79605c32ef8b2366f9adba7e6c65230b54cf0009a338dc"
+  },
+  "patch": {
+    "size": 8675782,
+    "sha256": "bf7d2b1fa728c8f2964e2ba965e7d46c0f2a22bf29aec7bcf2b56d8c0f9702f1",
+    "parts": [
+      {
+        "name": "update-1.13.1.part00",
+        "size": 7000000,
+        "sha256": "3a3b0e44235e4b2960b5183e1649fc6e8eb22c866b408c7b37a0a7c3598cfe7e"
+      },
+      {
+        "name": "update-1.13.1.part01",
+        "size": 1675782,
+        "sha256": "7195af98e17d4be2c847999bf996035383a90f32e1fd3f62fc1307869ac34d49"
+      }
+    ]
+  }
+}

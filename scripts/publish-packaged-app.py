@@ -1,4 +1,4 @@
-"""Publish a byte-verified 1.12.2 installer using the public previous release."""
+"""Publish a byte-verified 1.13.1 installer using the public previous release."""
 import bz2
 import hashlib
 import io
@@ -10,9 +10,9 @@ import subprocess
 import sys
 
 REPO='linxitong98-rgb/TouchBarChinchilla'
-VERSION='1.12.2'
-EXPECTED_SHA='3f90b0de017144bcff79605c32ef8b2366f9adba7e6c65230b54cf0009a338dc'
-BASE_SHA='b51f8d938e3543d490808edd9009ed82cb1367a7b93de12f67a5df0a0377ddeb'
+VERSION='1.13.1'
+EXPECTED_SHA='c3f3b2ecadebd0bcbfad393f357c3678c549ea706220574ad254e42568c7d676'
+BASE_SHA='3f90b0de017144bcff79605c32ef8b2366f9adba7e6c65230b54cf0009a338dc'
 
 
 def api(path,payload=None,method='GET'):
@@ -59,7 +59,7 @@ def apply_bsdiff(old, patch, expected_size):
 
 def reconstruct(root,manifest,base_path):
     assert manifest['version']==VERSION and manifest['sha256']==EXPECTED_SHA
-    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.12.0'
+    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.12.2'
     old=base_path.read_bytes()
     pieces=[]
     for part in manifest['patch']['parts']:
