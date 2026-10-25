@@ -1,12 +1,12 @@
 # Touch Bar 小龙猫
 
-为 MacBook Pro Touch Bar 制作的写实风格宠物龙猫。当前版本 **1.11.2**，同时支持 Intel 和 Apple 芯片。
+为 MacBook Pro Touch Bar 制作的写实风格宠物龙猫。当前版本 **1.12.0**，同时支持 Intel 和 Apple 芯片。
 
 ![Touch Bar 实际视图渲染预览](touchbar-preview.png)
 
 ## 下载与安装
 
-请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.11.2-universal.dmg`，打开后将 App 拖入“应用程序”。更新前请先退出旧版。
+请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.12.0-universal.dmg`，打开后将 App 拖入“应用程序”。更新前请先退出旧版。
 
 最低编译目标为 macOS 11；实体 Touch Bar 需要配备 Touch Bar 的 MacBook Pro，其他 Mac 可使用窗口预览。旧系统实际运行仍需相应设备验证。
 
@@ -19,6 +19,14 @@
 - 喂水器放出后，物品框里的水滴变成水滴＋，点选后点喂水器或直接拖到同位置补满水。收回喂水器后恢复原投放图标。
 - 图标下的进度条显示照顾状态；物品框贴左，尽量保留活动空间。
 - 自动保存本机状态，支持备份、恢复与布置撤销。
+
+## 1.12.0 状态与行为
+
+- 熟悉度影响观察、主动靠近最近触碰位置、退让和摸摸反应。连续打扰后会暂时避开，安静后缓和。
+- 精力平滑影响步速、动作节奏和休息；五项需求共同决定活动优先级。
+- 状态恢复逐渐发生，保留原体型标定与动作衔接。部分牧草可保存，撤销不会补回已吃掉的部分。
+
+![原生绘制的行为状态对比](behavior-preview.png)
 
 ## 常驻与验证范围
 
