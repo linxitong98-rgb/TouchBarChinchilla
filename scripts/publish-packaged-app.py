@@ -94,6 +94,15 @@ if __name__=='__main__':
         if complete and assets[manifest['filename']]['size']==manifest['size'] and assets[manifest['filename']].get('digest')=='sha256:'+EXPECTED_SHA:
             assert not any(r['tag_name']=='v1.13.1' for r in releases), 'Previous release cleanup incomplete'
             assert not api(f'repos/{REPO}/git/matching-refs/tags/v1.13.1'), 'Previous tag cleanup incomplete'
+            notes=(root/'RELEASE-NOTES.md').read_text()
+            if existing.get('body')!=notes:
+                assert existing['id']==424965176
+                signature=lambda r:sorted((a['id'],a['name'],a['size'],a.get('digest')) for a in r['assets'])
+                before=signature(existing)
+                updated=api(f'repos/{REPO}/releases/{existing["id"]}',{'body':notes},'PATCH')
+                assert updated['body']==notes and updated['tag_name']=='v'+VERSION
+                assert signature(updated)==before, 'Release attachments changed during text update'
+                print('Release introduction refined:',updated['html_url'])
             print('Already published and verified:',existing['html_url'])
             sys.exit(0)
     base=next(r for r in releases if r['tag_name']==manifest['base']['tag'] and not r['draft'])
