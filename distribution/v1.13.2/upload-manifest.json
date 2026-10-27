@@ -16,13 +16,68 @@
     "parts": [
       {
         "name": "update-1.13.2.part00",
-        "size": 7000000,
-        "sha256": "7acf125714500f1d36a80ce163d6679d8e9a87a5a6f62ec659af8ec705ab75c0"
+        "size": 750000,
+        "sha256": "1b2c09386943cefb8bf1cc51b4501a5c6dd6716878052dbbe2f64fcc987d964b"
       },
       {
         "name": "update-1.13.2.part01",
-        "size": 2062653,
-        "sha256": "d817b6f5835e578632e30573854d4e4d160c20953fa57eab8cc2567ee76bae25"
+        "size": 750000,
+        "sha256": "6ab4de8973870b76f511f1f1f389bcf00eab853d3ee3fb1365a3742024913968"
+      },
+      {
+        "name": "update-1.13.2.part02",
+        "size": 750000,
+        "sha256": "b8aceea517909be320040307044228e95163be2d948f959ae26177b4e83098fc"
+      },
+      {
+        "name": "update-1.13.2.part03",
+        "size": 750000,
+        "sha256": "2716edec392aea0fd2a7a081e34ff1795efee6bf6cc8a9bed43d0493e9de309b"
+      },
+      {
+        "name": "update-1.13.2.part04",
+        "size": 750000,
+        "sha256": "eb254076832ec6b42404aa56410d914a505f685091d0fd4f346b2e12e6cc0fdf"
+      },
+      {
+        "name": "update-1.13.2.part05",
+        "size": 750000,
+        "sha256": "b63b600ec37bb13ba83d24f324592dd023abcd99db19e48a3f81b81518111277"
+      },
+      {
+        "name": "update-1.13.2.part06",
+        "size": 750000,
+        "sha256": "3895f7c39aad069a48f85d4624b700b76ca0b9d2487dab14df061d93c840a8e1"
+      },
+      {
+        "name": "update-1.13.2.part07",
+        "size": 750000,
+        "sha256": "f45d1e1cb1342e7c8400a0249e6289beab66c8ef40e94922dd084018e3468b6d"
+      },
+      {
+        "name": "update-1.13.2.part08",
+        "size": 750000,
+        "sha256": "6fa90bbf5b6fd89d30689107b901827fc9bd6c44b608108b728b986b1e9ff113"
+      },
+      {
+        "name": "update-1.13.2.part09",
+        "size": 750000,
+        "sha256": "14752f9f695dd8b35d3bcf469353f682f7cb9e5a114a1486e2fda0be22fadedc"
+      },
+      {
+        "name": "update-1.13.2.part10",
+        "size": 750000,
+        "sha256": "5672bee970df23ab98e813cad95289e8c4c1630f95c4d7e3be4efea9d7afda90"
+      },
+      {
+        "name": "update-1.13.2.part11",
+        "size": 750000,
+        "sha256": "5663dc2117e6fb2eeeb90b666ee7731d90c6c636ca3c7b39a70594adb1535cb5"
+      },
+      {
+        "name": "update-1.13.2.part12",
+        "size": 62653,
+        "sha256": "4d609882d8a69928be319a76cbffb7a00d545d7a566f7d59c19a302b766c6bbd"
       }
     ]
   }

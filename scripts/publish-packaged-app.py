@@ -90,12 +90,13 @@ if __name__=='__main__':
     base=next(r for r in releases if r['tag_name']==manifest['base']['tag'] and not r['draft'])
     base_asset=next(a for a in base['assets'] if a['name']==manifest['base']['filename'])
     assert base_asset['size']==manifest['base']['size']
-    staging=next(r for r in releases if r['draft'] and r['name']==manifest['staging_title'])
     download(base_asset,Path('base.dmg'))
-    for part in manifest['patch']['parts']:
-        patch_asset=next(a for a in staging['assets'] if a['name']==part['name'])
-        assert patch_asset['size']==part['size']
-        download(patch_asset,root/part['name'])
+    if not all((root/part['name']).is_file() for part in manifest['patch']['parts']):
+        staging=next(r for r in releases if r['draft'] and r['name']==manifest['staging_title'])
+        for part in manifest['patch']['parts']:
+            patch_asset=next(a for a in staging['assets'] if a['name']==part['name'])
+            assert patch_asset['size']==part['size']
+            download(patch_asset,root/part['name'])
     installer=reconstruct(root,manifest,Path('base.dmg'))
     tag='v'+VERSION;title='Touch Bar 小龙猫 '+VERSION
     notes=(root/'RELEASE-NOTES.md').read_text()
@@ -113,3 +114,16 @@ if __name__=='__main__':
     assert asset['size']==manifest['size']
     if asset.get('digest'):assert asset['digest']=='sha256:'+EXPECTED_SHA
     print('Published:',release['html_url'])
+
+    # The user requested that only the latest release remain. Delete precisely
+    # the previous, byte-verified base only after the new release is complete.
+    assets={a['name']:a for a in release['assets']}
+    assert all(name in assets and assets[name]['state']=='uploaded' for name in [installer.name,'User-Guide.md','SHA256.txt'])
+    assert assets[installer.name]['digest']=='sha256:'+EXPECTED_SHA
+    assert base['tag_name']=='v1.13.1' and base['id']==423553492 and not base['draft']
+    assert base_asset['digest']=='sha256:'+BASE_SHA
+    old_ref=api(f'repos/{REPO}/git/ref/tags/v1.13.1')
+    assert old_ref['object']['sha']=='3b184f981e2491514d93c72b2055bbf59296f794'
+    subprocess.run(['gh','api','--method','DELETE',f'repos/{REPO}/releases/{base["id"]}'],check=True)
+    subprocess.run(['gh','api','--method','DELETE',f'repos/{REPO}/git/refs/tags/v1.13.1'],check=True)
+    print('Removed previous release and tag: v1.13.1')
