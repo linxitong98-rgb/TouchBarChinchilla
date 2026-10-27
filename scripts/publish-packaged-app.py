@@ -87,6 +87,15 @@ if __name__=='__main__':
     root=Path('distribution/v'+VERSION)
     manifest=json.loads((root/'upload-manifest.json').read_text())
     releases=api(f'repos/{REPO}/releases')
+    existing=next((r for r in releases if r['tag_name']=='v'+VERSION and not r['draft']),None)
+    if existing:
+        assets={a['name']:a for a in existing['assets']}
+        complete=all(name in assets and assets[name]['state']=='uploaded' for name in [manifest['filename'],'User-Guide.md','SHA256.txt'])
+        if complete and assets[manifest['filename']]['size']==manifest['size'] and assets[manifest['filename']].get('digest')=='sha256:'+EXPECTED_SHA:
+            assert not any(r['tag_name']=='v1.13.1' for r in releases), 'Previous release cleanup incomplete'
+            assert not api(f'repos/{REPO}/git/matching-refs/tags/v1.13.1'), 'Previous tag cleanup incomplete'
+            print('Already published and verified:',existing['html_url'])
+            sys.exit(0)
     base=next(r for r in releases if r['tag_name']==manifest['base']['tag'] and not r['draft'])
     base_asset=next(a for a in base['assets'] if a['name']==manifest['base']['filename'])
     assert base_asset['size']==manifest['base']['size']
