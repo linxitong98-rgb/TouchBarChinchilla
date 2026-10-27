@@ -1,12 +1,12 @@
 # Touch Bar 小龙猫
 
-为 MacBook Pro Touch Bar 制作的写实风格宠物龙猫。当前版本 **1.13.1**，同时支持 Intel 和 Apple 芯片。
+为 MacBook Pro Touch Bar 制作的写实风格宠物龙猫。当前版本 **1.13.2**，同时支持 Intel 和 Apple 芯片。
 
 ![Touch Bar 实际视图渲染预览](touchbar-preview.png)
 
 ## 下载与安装
 
-请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.13.1-universal.dmg`，打开后将 App 拖入“应用程序”。更新前请先退出旧版。
+请到本仓库的 [Releases](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 页面下载 `TouchBarChinchilla-1.13.2-universal.dmg`，打开后将 App 拖入“应用程序”。更新前请先退出旧版。
 
 最低编译目标为 macOS 11；实体 Touch Bar 需要配备 Touch Bar 的 MacBook Pro，其他 Mac 可使用窗口预览。旧系统实际运行仍需相应设备验证。
 
@@ -20,7 +20,13 @@
 - 图标下的进度条显示照顾状态；物品框贴左，尽量保留活动空间。
 - 自动保存本机状态，支持备份、恢复与布置撤销。
 
-## 1.13.1 防御、排便与清理
+## 1.13.2 喷流与左右防御优化
+
+- 喷尿增加明亮弧线喷流、移动水滴、落点飞溅及渐隐，在30点高的Touch Bar中更清楚。
+- 喷尿、丢便便与装死按左右触碰位置确定该次朝向；点中央时保留已显示的朝向，先接续姿势并完成转身。
+- 动作期间继续触摸不会突然翻面，靠边抛物仍向对应方向落地；原体型、92个姿势和873张过渡图保留。
+
+## 防御、排便与清理
 
 - 持续骚扰时，熟悉度50%～不足70%喷尿；30%～不足50%随机喷尿或丢便便；不足30%随机喷尿、丢便便或短暂装死。后两种为游戏化效果。
 - 特殊反应有10秒冷却，一次防御只随机一次，动作期间不会因反复点击而重启。
