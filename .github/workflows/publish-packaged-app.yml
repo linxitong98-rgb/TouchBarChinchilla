@@ -1,5 +1,8 @@
 name: Publish packaged app
 on:
+  push:
+    branches: [main]
+    paths: ['distribution/v1.13.3/*.part*']
   workflow_dispatch:
     inputs:
       check_only:

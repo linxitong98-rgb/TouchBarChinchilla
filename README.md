@@ -4,7 +4,7 @@
 
 放好牧草、水、沙盘和玩具，它会根据饱足、饮水、精力、整洁和熟悉度选择活动。精力不足时，动作节奏会慢下来；照料与被接受的抚摸，也会让它逐渐熟悉你。熟悉之后，点一下空白处，它更愿意先看看，再走过来。
 
-当前版本 **1.13.2**，支持 Intel 与 Apple 芯片。[下载安装包](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases)
+当前版本 **1.13.3**，支持 Intel 与 Apple 芯片。[下载安装包](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases)
 
 ![Touch Bar 场景预览](touchbar-preview.png)
 
@@ -18,11 +18,11 @@
 
 持续快速触摸会让它戒备，熟悉度较低时可能喷尿警告、抛掷便粒或短暂装死。普通单次轻触不会直接触发这些反应，防御动作结束后会自行恢复活动。喷尿参考现实防御行为；抛掷便粒和装死是游戏化效果，具体规则见 `User-Guide.md`。
 
-1.13.2 调整了防御效果与左右朝向，让转身后的动作衔接更连贯，并保持原有体型和完整显示。
+1.13.3 将喷尿调成更浅、更透明的颜色，收细亮线，减少水滴与落点痕迹；保留原有左右朝向、动作衔接、体型和完整显示。
 
 ## 下载与使用
 
-在 [版本发布页](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 下载 `TouchBarChinchilla-1.13.2-universal.dmg`，打开后把 App 拖入“应用程序”。更新前先退出旧版。操作细节见附件 `User-Guide.md`，校验值见 `SHA256.txt`；安装请选择 DMG，Source code 是仓库文件。
+在 [版本发布页](https://github.com/linxitong98-rgb/TouchBarChinchilla/releases) 下载 `TouchBarChinchilla-1.13.3-universal.dmg`，打开后把 App 拖入“应用程序”。更新前先退出旧版。操作细节见附件 `User-Guide.md`，校验值见 `SHA256.txt`；安装请选择 DMG，Source code 是仓库文件。
 
 App 默认留在菜单栏，预览窗口可以隐藏。状态自动保存在本机，支持备份、恢复和布置撤销；关闭期间不消耗状态。没有 Touch Bar 的 Mac 也可在窗口中互动。
 

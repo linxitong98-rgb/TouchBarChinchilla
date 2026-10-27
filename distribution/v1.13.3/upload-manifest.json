@@ -1,0 +1,84 @@
+{
+  "version": "1.13.3",
+  "staging_title": "Touch Bar 小龙猫 1.13.3 · 上传暂存",
+  "filename": "TouchBarChinchilla-1.13.3-universal.dmg",
+  "size": 121993089,
+  "sha256": "c31640674ed64c7f8bf9bc92fd9bfd6814f032599d1107e72b3d2d405f42a1d6",
+  "base": {
+    "tag": "v1.13.2",
+    "filename": "TouchBarChinchilla-1.13.2-universal.dmg",
+    "size": 120960484,
+    "sha256": "424052ea67a71b685b9774ead9b353be004e072ecccd7aa91655818895185fb3"
+  },
+  "patch": {
+    "size": 9519662,
+    "sha256": "2b256451d081aa192dea7d68d7cd4fc3a9f4ee3a75da3bc317be5b8ec161f875",
+    "parts": [
+      {
+        "name": "update-1.13.3.part00",
+        "size": 750000,
+        "sha256": "432e9ccb3394a7aaa55a64a4ac5ffe2ab03bcb8d758f3bd19629148af2238c1b"
+      },
+      {
+        "name": "update-1.13.3.part01",
+        "size": 750000,
+        "sha256": "3b821fad41030b9fafa72013e851534bacdb7eef16b0e3190c39764c878bb174"
+      },
+      {
+        "name": "update-1.13.3.part02",
+        "size": 750000,
+        "sha256": "2a8de03949967600a455e2aac6758b16ed5627d1b23278154112fd09ae786e04"
+      },
+      {
+        "name": "update-1.13.3.part03",
+        "size": 750000,
+        "sha256": "cae00bea69c7a2e35af6d865e85807e5741b4fe1ceeba7f9e4f7be4d935aa7ae"
+      },
+      {
+        "name": "update-1.13.3.part04",
+        "size": 750000,
+        "sha256": "f6b1f63a28e8788f379955d127736b1c33f526d2d174c5f922c763bf750f199e"
+      },
+      {
+        "name": "update-1.13.3.part05",
+        "size": 750000,
+        "sha256": "6f47f16bf9eab61cbab18295cc84906611a269f3c656da9dcf759b8478709895"
+      },
+      {
+        "name": "update-1.13.3.part06",
+        "size": 750000,
+        "sha256": "c6e22fc71f0fdbd12b76e83e1b3befc71fe5bd0e383a9e9455509a66852b564e"
+      },
+      {
+        "name": "update-1.13.3.part07",
+        "size": 750000,
+        "sha256": "b939de5a367c8ac3597709d045c4f945a171c903ef82e3c7bcd1c08707123a4f"
+      },
+      {
+        "name": "update-1.13.3.part08",
+        "size": 750000,
+        "sha256": "fab99a3baf8f893e2d8dc7f48a11787b1799931c2125ad8442dcfb3cc9e0f84c"
+      },
+      {
+        "name": "update-1.13.3.part09",
+        "size": 750000,
+        "sha256": "7daab2293b318cb2806d9c47fb15099a4200cb0a72bdb9d8db05dc31f0a3f1d0"
+      },
+      {
+        "name": "update-1.13.3.part10",
+        "size": 750000,
+        "sha256": "6da4aac96c2ca6ab9ebe12905084440960c5cb646ad34c3f4f791933d9dcd223"
+      },
+      {
+        "name": "update-1.13.3.part11",
+        "size": 750000,
+        "sha256": "1289c576fc137009a98bf733f160ab762b67135e605a47cb14d2591fe04543c6"
+      },
+      {
+        "name": "update-1.13.3.part12",
+        "size": 519662,
+        "sha256": "b61f3842eb8218a0092858a6af7721acc0030034b92e46eab71c2fe61a2d4280"
+      }
+    ]
+  }
+}
