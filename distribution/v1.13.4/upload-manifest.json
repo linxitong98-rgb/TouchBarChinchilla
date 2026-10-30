@@ -1,0 +1,97 @@
+{
+  "version": "1.13.4",
+  "staging_title": "Touch Bar 小龙猫 1.13.4 · 上传暂存",
+  "filename": "TouchBarChinchilla-1.13.4-universal.dmg",
+  "size": 121873309,
+  "sha256": "a41ed0aea7abc1010c95441d4e65d6938f2533733e1878d1025964fbe47a834b",
+  "base": {
+    "tag": "v1.13.3",
+    "filename": "TouchBarChinchilla-1.13.3-universal.dmg",
+    "size": 121993089,
+    "sha256": "c31640674ed64c7f8bf9bc92fd9bfd6814f032599d1107e72b3d2d405f42a1d6"
+  },
+  "patch": {
+    "size": 9368138,
+    "sha256": "975f42da33d455d6175a04913d1c990c7b1201134d85355d31362818e43fc37a",
+    "parts": [
+      {
+        "name": "update-1.13.4.part00",
+        "size": 750000,
+        "sha256": "11a6e5412f9618c4c232a1132c7191056b2bc32528657b81eea9ba72915e8a5a",
+        "git_sha": "3d3fa75744d0219b680546c14d7df0a3a0698123"
+      },
+      {
+        "name": "update-1.13.4.part01",
+        "size": 750000,
+        "sha256": "1c82063db0e0aea98a590eaa8de9346b24d2e618410280eb2a4ae960097ffdcb",
+        "git_sha": "2d88b4a2ce0af6c0a8f29aef1b67d5a26922fcf5"
+      },
+      {
+        "name": "update-1.13.4.part02",
+        "size": 750000,
+        "sha256": "973b7ecf1985a7a99289924847c53fa1049e8cb84476f3a65da6be4d02809483",
+        "git_sha": "e981273ff6861597fbfaa00688d68c8b6048d3e7"
+      },
+      {
+        "name": "update-1.13.4.part03",
+        "size": 750000,
+        "sha256": "532156b68fa237345bc4f1838dc4ea365f54440cf55771258a3f8e627d65ca1c",
+        "git_sha": "069777d590cc02b16ec35549b8ee702c71493c06"
+      },
+      {
+        "name": "update-1.13.4.part04",
+        "size": 750000,
+        "sha256": "2abe8d5b31fe7e21277bc93be501fb65283a3d34408a950c5a2f23e8a1413210",
+        "git_sha": "ae76b91e5fa7212b96e3136a91e6cc9323bdaacc"
+      },
+      {
+        "name": "update-1.13.4.part05",
+        "size": 750000,
+        "sha256": "c98e8199ba5f021b0509f7ca1e2bd9852f6e33d9259e81d9d9968de2f2fe6ffc",
+        "git_sha": "20fb2ec8ce5ea216a85a7ecd3b4f96112f57c400"
+      },
+      {
+        "name": "update-1.13.4.part06",
+        "size": 750000,
+        "sha256": "d2946b846968cea8921898a5b2f11f32b156f6fa3202eb14cc9f942ef8853c16",
+        "git_sha": "bff2f4b2413b5602cefdb6315c77a080c6c516cf"
+      },
+      {
+        "name": "update-1.13.4.part07",
+        "size": 750000,
+        "sha256": "3772b7e0ea4149893f5684e81b71064e24027f651a6dd362e4320cb4bc158d78",
+        "git_sha": "4a2d9b7d984207b8acd4751a50eea24ad5c13fc1"
+      },
+      {
+        "name": "update-1.13.4.part08",
+        "size": 750000,
+        "sha256": "76549194256c8d90448dfa84881ec063fc8ba05bdad729ace8f65b3ac9adacce",
+        "git_sha": "f9d617943147d09ac54327e9a6f0bdf25edab907"
+      },
+      {
+        "name": "update-1.13.4.part09",
+        "size": 750000,
+        "sha256": "212560274b644fdfa7468816216c3d6ddfcabf75850d2b089fcaff7d14675bae",
+        "git_sha": "a20a5fbb8e937e41c36133acb87156be7d5b5186"
+      },
+      {
+        "name": "update-1.13.4.part10",
+        "size": 750000,
+        "sha256": "91f995f782a291bdffe2931e73978350c4d4412d8822af2fa5a8ff3b2fcd8cb3",
+        "git_sha": "8e0a7fac753f80ecbc6a621ddc59ebaf386b4a16"
+      },
+      {
+        "name": "update-1.13.4.part11",
+        "size": 750000,
+        "sha256": "e3b80bf25d821c1caf1f725bea638052cf4a107a452a0cea3cd2f16098edcb8a",
+        "git_sha": "bf748e9fe31491f89d31f8111f55dc01c87ccc3d"
+      },
+      {
+        "name": "update-1.13.4.part12",
+        "size": 368138,
+        "sha256": "7ec1cdef7efbaed15fd91100672d4e3e1bed718f61c2a6d15b23ee9517561e46",
+        "git_sha": "7032ba7d5801ac1768814bee8d15303b6b4072fe"
+      }
+    ]
+  }
+}

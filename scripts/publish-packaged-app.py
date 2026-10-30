@@ -1,4 +1,4 @@
-"""Publish a byte-verified 1.13.3 installer using the public previous release."""
+"""Publish a byte-verified 1.13.4 installer using the public previous release."""
 import bz2
 import hashlib
 import io
@@ -10,9 +10,9 @@ import subprocess
 import sys
 
 REPO='linxitong98-rgb/TouchBarChinchilla'
-VERSION='1.13.3'
-EXPECTED_SHA='c31640674ed64c7f8bf9bc92fd9bfd6814f032599d1107e72b3d2d405f42a1d6'
-BASE_SHA='424052ea67a71b685b9774ead9b353be004e072ecccd7aa91655818895185fb3'
+VERSION='1.13.4'
+EXPECTED_SHA='a41ed0aea7abc1010c95441d4e65d6938f2533733e1878d1025964fbe47a834b'
+BASE_SHA='c31640674ed64c7f8bf9bc92fd9bfd6814f032599d1107e72b3d2d405f42a1d6'
 
 
 def api(path,payload=None,method='GET'):
@@ -59,7 +59,7 @@ def apply_bsdiff(old, patch, expected_size):
 
 def reconstruct(root,manifest,base_path):
     assert manifest['version']==VERSION and manifest['sha256']==EXPECTED_SHA
-    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.13.2'
+    assert manifest['base']['sha256']==BASE_SHA and manifest['base']['tag']=='v1.13.3'
     old=base_path.read_bytes()
     pieces=[]
     for part in manifest['patch']['parts']:
@@ -92,8 +92,8 @@ if __name__=='__main__':
         assets={a['name']:a for a in existing['assets']}
         complete=all(name in assets and assets[name]['state']=='uploaded' for name in [manifest['filename'],'User-Guide.md','SHA256.txt'])
         if complete and assets[manifest['filename']]['size']==manifest['size'] and assets[manifest['filename']].get('digest')=='sha256:'+EXPECTED_SHA:
-            assert not any(r['tag_name']=='v1.13.2' for r in releases), 'Previous release cleanup incomplete'
-            assert not api(f'repos/{REPO}/git/matching-refs/tags/v1.13.2'), 'Previous tag cleanup incomplete'
+            assert not any(r['tag_name']=='v1.13.3' for r in releases), 'Previous release cleanup incomplete'
+            assert not api(f'repos/{REPO}/git/matching-refs/tags/v1.13.3'), 'Previous tag cleanup incomplete'
             notes=(root/'RELEASE-NOTES.md').read_text()
             if existing.get('body')!=notes:
                 signature=lambda r:sorted((a['id'],a['name'],a['size'],a.get('digest')) for a in r['assets'])
@@ -137,10 +137,10 @@ if __name__=='__main__':
     assets={a['name']:a for a in release['assets']}
     assert all(name in assets and assets[name]['state']=='uploaded' for name in [installer.name,'User-Guide.md','SHA256.txt'])
     assert assets[installer.name]['digest']=='sha256:'+EXPECTED_SHA
-    assert base['tag_name']=='v1.13.2' and base['id']==424965176 and not base['draft']
+    assert base['tag_name']=='v1.13.3' and base['id']==425041354 and not base['draft']
     assert base_asset['digest']=='sha256:'+BASE_SHA
-    old_ref=api(f'repos/{REPO}/git/ref/tags/v1.13.2')
-    assert old_ref['object']['sha']=='17bd882b6a54d268442e3c095899b078f9b61146'
+    old_ref=api(f'repos/{REPO}/git/ref/tags/v1.13.3')
+    assert old_ref['object']['sha']=='d33ee31e5ee30d1882e958ca5f5f51f1ab63dc22'
     subprocess.run(['gh','api','--method','DELETE',f'repos/{REPO}/releases/{base["id"]}'],check=True)
-    subprocess.run(['gh','api','--method','DELETE',f'repos/{REPO}/git/refs/tags/v1.13.2'],check=True)
-    print('Removed previous release and tag: v1.13.2')
+    subprocess.run(['gh','api','--method','DELETE',f'repos/{REPO}/git/refs/tags/v1.13.3'],check=True)
+    print('Removed previous release and tag: v1.13.3')

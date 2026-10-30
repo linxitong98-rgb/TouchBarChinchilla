@@ -1,5 +1,8 @@
 name: Publish packaged app
 on:
+  push:
+    branches: [main]
+    paths: ['distribution/v1.13.4/*.part*']
   workflow_dispatch:
     inputs:
       check_only:
@@ -33,4 +36,5 @@ jobs:
           git -C package checkout --detach FETCH_HEAD
           cd package
           python3 scripts/publish-packaged-app.py
+
 
